@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TrackerAPI.Data;
 
@@ -11,9 +12,10 @@ using TrackerAPI.Data;
 namespace TrackerAPI.Migrations
 {
     [DbContext(typeof(ExerciseContext))]
-    partial class ExerciseContextModelSnapshot : ModelSnapshot
+    [Migration("20220324132854_SeedDB")]
+    partial class SeedDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,7 +84,7 @@ namespace TrackerAPI.Migrations
                         new
                         {
                             LiftingStatId = 1,
-                            Date = new DateTime(2022, 3, 24, 14, 33, 33, 648, DateTimeKind.Local).AddTicks(7098),
+                            Date = new DateTime(2022, 3, 24, 13, 28, 54, 21, DateTimeKind.Local).AddTicks(4546),
                             ExerciseId = 1,
                             Repetitions = 5,
                             Weight = 100.0
@@ -90,7 +92,7 @@ namespace TrackerAPI.Migrations
                         new
                         {
                             LiftingStatId = 2,
-                            Date = new DateTime(2022, 3, 24, 14, 33, 33, 648, DateTimeKind.Local).AddTicks(7135),
+                            Date = new DateTime(2022, 3, 24, 13, 28, 54, 21, DateTimeKind.Local).AddTicks(4614),
                             ExerciseId = 1,
                             Repetitions = 5,
                             Weight = 105.0
@@ -98,7 +100,7 @@ namespace TrackerAPI.Migrations
                         new
                         {
                             LiftingStatId = 3,
-                            Date = new DateTime(2022, 3, 24, 14, 33, 33, 648, DateTimeKind.Local).AddTicks(7137),
+                            Date = new DateTime(2022, 3, 24, 13, 28, 54, 21, DateTimeKind.Local).AddTicks(4618),
                             ExerciseId = 2,
                             Repetitions = 5,
                             Weight = 85.5
@@ -107,11 +109,13 @@ namespace TrackerAPI.Migrations
 
             modelBuilder.Entity("TrackerAPI.Models.LiftingStat", b =>
                 {
-                    b.HasOne("TrackerAPI.Models.Exercise", null)
+                    b.HasOne("TrackerAPI.Models.Exercise", "Exercise")
                         .WithMany("Stats")
                         .HasForeignKey("ExerciseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Exercise");
                 });
 
             modelBuilder.Entity("TrackerAPI.Models.Exercise", b =>

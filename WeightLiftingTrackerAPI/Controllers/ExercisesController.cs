@@ -54,7 +54,7 @@ namespace TrackerAPI.Controllers
                 return BadRequest();
             }
 
-            await _exerciseRepository.Update(id, exercise);
+            await _exerciseRepository.UpdateExercise(id, exercise);
 
             return Accepted("Exercise updated.");
         }
@@ -66,7 +66,7 @@ namespace TrackerAPI.Controllers
         {
             //Should there be a bad request option here??
             
-            var createdExercise = await _exerciseRepository.Add(exercise);
+            var createdExercise = await _exerciseRepository.AddExercise(exercise);
 
             return CreatedAtAction(nameof(GetExercise), new { id = createdExercise.ExerciseId }, createdExercise);
 
@@ -83,7 +83,7 @@ namespace TrackerAPI.Controllers
                 return NotFound("Exercise not found.");
             }
 
-            var result = await _exerciseRepository.Delete(id);
+            var result = await _exerciseRepository.DeleteExercise(id);
 
             return Ok();
         }

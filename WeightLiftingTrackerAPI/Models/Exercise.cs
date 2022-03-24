@@ -9,7 +9,8 @@ namespace TrackerAPI.Models
         [Required]
         [MaxLength(50)]
         public string Name { get; set; }
-        public IEnumerable<LiftingStat> Stats { get; set; }
+        
+        public virtual IEnumerable<LiftingStat> Stats { get; set; }
 
     }
 }

@@ -13,6 +13,5 @@ namespace TrackerAPI.Models
         public int Repetitions { get; set; }
 
         public int ExerciseId { get; set; }
-        public Exercise Exercise { get; set; }
     }
 }

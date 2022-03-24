@@ -6,9 +6,9 @@ namespace TrackerAPI.Repository
     {
         Task<Exercise> GetExercise(int id);
         Task<IEnumerable<Exercise>> GetExerciseList();
-        Task<Exercise> Add(Exercise exercise);
-        Task<Exercise> Update(int id, Exercise exerciseChanges);
-        Task<Exercise> Delete(int id);
+        Task<Exercise> AddExercise(Exercise exercise);
+        Task<Exercise> UpdateExercise(int id, Exercise exerciseChanges);
+        Task<Exercise> DeleteExercise(int id);
 
     }
 }
