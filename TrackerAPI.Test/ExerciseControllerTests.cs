@@ -124,7 +124,7 @@ namespace TrackerAPI.Test
                 Name = "Split Jerk"
             };
 
-            mockRepo.Setup(a => a.Add(NewExercise)).ReturnsAsync(NewExercise);
+            mockRepo.Setup(a => a.AddExercise(NewExercise)).ReturnsAsync(NewExercise);
 
             //Act
             var result = await controller.CreateExercise(NewExercise);
@@ -165,7 +165,7 @@ namespace TrackerAPI.Test
                 Name = "Push Press"
             };
 
-            mockRepo.Setup(a => a.Update(exercises[1].ExerciseId, exercise)).ReturnsAsync(exercise);
+            mockRepo.Setup(a => a.UpdateExercise(exercises[1].ExerciseId, exercise)).ReturnsAsync(exercise);
 
             //Act
             var result = await controller.UpdateExercise(exercises[1].ExerciseId, exercise);
@@ -184,7 +184,7 @@ namespace TrackerAPI.Test
                 Name = "Push Press"
             };
 
-            mockRepo.Setup(a => a.Update(exercises[1].ExerciseId, exercise)).ReturnsAsync(exercise);
+            mockRepo.Setup(a => a.UpdateExercise(exercises[1].ExerciseId, exercise)).ReturnsAsync(exercise);
 
             //Act
             var result = await controller.UpdateExercise(exercises[2].ExerciseId, exercise);
@@ -205,7 +205,7 @@ namespace TrackerAPI.Test
             int exerciseId = exercises[0].ExerciseId;
 
             mockRepo.Setup(a => a.GetExercise(exerciseId)).ReturnsAsync(exercises.Find(x => x.ExerciseId == exerciseId));
-            mockRepo.Setup(a => a.Delete(exerciseId)).Verifiable();
+            mockRepo.Setup(a => a.DeleteExercise(exerciseId)).Verifiable();
 
             //Act
             var result = await controller.DeleteExercise(exercises[0].ExerciseId);
