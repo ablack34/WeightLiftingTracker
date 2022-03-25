@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TrackerAPI.Data;
 
@@ -10,9 +11,10 @@ using TrackerAPI.Data;
 namespace TrackerAPI.Migrations
 {
     [DbContext(typeof(ExerciseContext))]
-    partial class ExerciseContextModelSnapshot : ModelSnapshot
+    [Migration("20220325094336_SeedDataDateUpdated")]
+    partial class SeedDataDateUpdated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -59,10 +61,6 @@ namespace TrackerAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LiftingStatId"), 1L, 1);
 
-                    b.Property<string>("Date")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("ExerciseId")
                         .HasColumnType("int");
 
@@ -82,7 +80,6 @@ namespace TrackerAPI.Migrations
                         new
                         {
                             LiftingStatId = 1,
-                            Date = "25/03/2022",
                             ExerciseId = 1,
                             Repetitions = 5,
                             Weight = 100.0
@@ -90,7 +87,6 @@ namespace TrackerAPI.Migrations
                         new
                         {
                             LiftingStatId = 2,
-                            Date = "25/03/2022",
                             ExerciseId = 1,
                             Repetitions = 5,
                             Weight = 105.0
@@ -98,7 +94,6 @@ namespace TrackerAPI.Migrations
                         new
                         {
                             LiftingStatId = 3,
-                            Date = "25/03/2022",
                             ExerciseId = 2,
                             Repetitions = 5,
                             Weight = 85.5

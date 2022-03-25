@@ -22,7 +22,7 @@ namespace TrackerAPI.Models
                 new LiftingStat
                 {
                     LiftingStatId = 1,
-                    Date = DateTime.Now,
+                    Date = DateTime.Today.ToString("d"),
                     Weight = 100.0,
                     Repetitions = 5,
                     ExerciseId = 1,
@@ -30,7 +30,7 @@ namespace TrackerAPI.Models
                 new LiftingStat
                 {
                     LiftingStatId = 2,
-                    Date = DateTime.Now,
+                    Date = DateTime.Today.ToString("d"),
                     Weight = 105.0,
                     Repetitions = 5,
                     ExerciseId = 1,
@@ -38,11 +38,11 @@ namespace TrackerAPI.Models
                 new LiftingStat
                 {
                     LiftingStatId = 3,
-                    Date = DateTime.Now,
+                    Date = DateTime.Today.ToString("d"),
                     Weight = 85.50,
                     Repetitions = 5,
                     ExerciseId = 2,
-                });
+                }); ;
         }
     }
 }
