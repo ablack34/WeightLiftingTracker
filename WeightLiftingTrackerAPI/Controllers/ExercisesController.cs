@@ -32,7 +32,7 @@ namespace TrackerAPI.Controllers
 
         // GET: api/Exercises/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Exercise>> GetExercise(int id)
+        public async Task<ActionResult<Exercise>> GetExercise([FromRoute] int id)
         {
             var result = await _exerciseRepository.GetExercise(id);
 
